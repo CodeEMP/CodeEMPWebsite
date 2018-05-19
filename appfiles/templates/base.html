@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block title %}
+        <title>CodeEMP</title>
+        {% endblock %}
+        <meta  charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/static/css/Style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="/static/js/jquery.js"></script>
+    </head>
+    <body>
+        {% block header %}
+        <div class="header">
+            <h1 class="headertitle">CodeEMP</h1>
+            <ul class="headernav">
+                <li><a href="/">Home</a></li>
+                <li>|</li>
+                <li><a href="/blog">Blog</a></li>
+                <li>|</li>
+                <li><a href="/projects">Projects</a></li>
+            </ul>
+        </div>
+        {% endblock %}
+        {% block content %}{% endblock %}
+        {% block footer %}
+        <div class="footer">
+            
+        </div>
+        {% endblock %}
+    </body>
+</html>
