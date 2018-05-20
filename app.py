@@ -2,7 +2,9 @@ import tornado.ioloop
 import tornado.web
 import tornado.log
 import queries
+import psycopg2
 import os
+import sqlalchemy
 
 from jinja2 import \
   Environment, PackageLoader, select_autoescape
@@ -28,9 +30,40 @@ class MainHandler(TemplateHandler):
     
     self.render_template("index.html")
     
+
+class DeveloperBlogHandler(TemplateHandler):
+  def get(self):
+    self.set_header(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, max-age=0')
+    
+    self.render_template("developerblog.html")
+    
+    
+class HobbyBlogHandler(TemplateHandler):
+  def get(self):
+    self.set_header(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, max-age=0')
+    
+    self.render_template("hobbyblog.html")
+    
+    
+class PostHandler(TemplateHandler):
+  def get (self, slug):
+    self.set_header(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, max-age=0')
+      
+    self.render_template("post.html")
+    
+    
 def make_app():
   return tornado.web.Application([
     (r"/", MainHandler),
+    (r"/developerblog", DeveloperBlogHandler),
+    (r"/hobbyblog", HobbyBlogHandler),
+    (r"/post/(.*)", PostHandler),
     (
       r"/static/(.*)",
       tornado.web.StaticFileHandler,

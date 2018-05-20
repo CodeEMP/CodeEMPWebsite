@@ -5,6 +5,7 @@ body {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    font-size: 1.07em;
 }
 .header {
     width: 100%;
@@ -54,7 +55,44 @@ body {
 }
 .content {
     width: 100%;
+    height: 100%;
     background-color: darkslategray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.content > div {
+    margin: 20px;
+    background-color: steelblue;
+    border-radius: 10px;
+}
+.aboutme {
+    width: 90%;
+}
+.skills {
+    width: 80%;
+}
+.skills > ul {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.skills > li {
+    padding: 5px;
+}
+.tophome{
+    flex: 3;
+    justify-content: space-around;
+}
+.homecontenttitle {
+    width: 100%;
+    background-color: slateblue;
+    margin-top: 0;
+    font: sans-serif;
+}
+.footer {
+    width: 100%;
+    background-color: cadetblue;
 }
 
 @media (max-width: 600px) {
