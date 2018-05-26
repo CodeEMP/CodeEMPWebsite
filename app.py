@@ -5,6 +5,7 @@ import queries
 import psycopg2
 import os
 import sqlalchemy
+from sqlalchemy import create_engine
 
 from jinja2 import \
   Environment, PackageLoader, select_autoescape
@@ -13,6 +14,8 @@ ENV = Environment(
   loader=PackageLoader('appfiles', 'templates'),
   autoescape=select_autoescape(['html', 'xml'])
 )
+
+engine = create_engine('postgresql+psycopg2://postgres@localhost:5432/codeemp')
 
 class TemplateHandler(tornado.web.RequestHandler):
   def render_template (self, tpl, context=None):
